@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+mkdir -p logs output
+
+LOG="logs/run_sim.log"
+
+echo "[INFO] Generating flist.f ..."
+bash "$(dirname "$0")/script/gen_flist.sh"
+echo
+
+echo "[INFO] Running Vivado batch (run_vivado4sim.tcl) ..."
+echo "[INFO] Log: $LOG"
+echo
+
+# vivado_batch는 vivado.zsh에 정의되어 있으므로 먼저 source
+zsh -lc "source ~/.zshrc; sourcevivado; vivado_batch ./script/run_vivado4sim.tcl ." 2>&1 | tee "$LOG"
+
+echo
+echo "[INFO] Done."
+echo "[INFO] WDB: ./output/wave.wdb"
+echo "[INFO] VCD: ./output/wave.vcd"
+echo "[INFO] XSIM LOG: ./output/xsim.log"

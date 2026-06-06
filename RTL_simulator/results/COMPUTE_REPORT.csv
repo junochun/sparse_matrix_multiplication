@@ -1,0 +1,4 @@
+LayerID,Layer Name,M,K,N,Compute Cycles,Skip Ratio %,Effective MACs,Total MACs,Mapping Efficiency %,Avg BRAM_A BW (words/cyc),Avg BRAM_B BW (words/cyc),Avg BRAM_C BW (words/cyc),DRAM Stall Cycles,Total Cycles (w/DRAM),Min DRAM BW Needed (words/cyc)
+0,FC1,1,784,100,7069,74.82,19738,78400,2.44,14.486,14.486,0.579,0,7069,11.216
+1,FC2,1,100,10,349,20.20,798,1000,0.98,11.736,11.736,2.934,0,349,3.181
+TOTAL,,,,,7418,,,,,,,,,,
